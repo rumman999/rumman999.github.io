@@ -5,59 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rumman Karim's Portfolio</title>
     <style>
+        /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
-            color: white;
+            background: #0a192f; /* Solid navy blue background */
+            color: #ccd6f6;
+            line-height: 1.6;
             text-align: center;
+            overflow-x: hidden;
         }
 
-        header {
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        header h1 {
+        h1, h2, h3 {
+            font-weight: 600;
             margin: 0;
+        }
+
+        h1 {
             font-size: 2.5rem;
         }
 
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #64ffda; /* Teal accent */
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #8892b0;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        a {
+            color: #64ffda;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 20px 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+
         header p {
-            margin: 5px 0 15px;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            color: #8892b0;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
         }
 
+        /* Sections */
         section {
-            padding: 20px;
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 800px;
         }
 
+        /* Buttons */
         .button {
             display: inline-block;
             margin: 10px;
-            padding: 10px 20px;
-            border: 2px solid white;
-            border-radius: 25px;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s;
+            padding: 12px 24px;
+            border: 2px solid #64ffda;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #64ffda;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
         }
 
         .button:hover {
-            background: white;
-            color: #4ca1af;
+            background: #64ffda;
+            color: #0a192f;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
         }
 
+        /* Footer */
         footer {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #8892b0;
+            max-width: 800px; /* Match the max-width of sections */
+            margin-left: auto; /* Center the footer */
+            margin-right: auto; /* Center the footer */
+            text-align: center; /* Center-align text */
+            width: 100%; /* Ensure footer spans full width */
+        }
+
+        footer p {
+            margin: 0;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header, section, footer {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <div id="particles-js"></div>
     <header>
         <h1>Rumman Karim</h1>
         <p>Web Developer | Competitive Programmer | CSE Student</p>
@@ -73,18 +154,45 @@
 
     <section>
         <h2>Projects</h2>
-        <a href="https://github.com/rumman999/UVGotThis-/" class="button">UV Got This?</a>
-        <a href="https://github.com/rumman999/Scratch-off-World-Map" class="button">Scratch World Map</a>
+        <a href="https://github.com/rumman999/UVGotThis-/" class="button" target="_blank">UV Got This?</a>
+        <a href="https://github.com/rumman999/Scratch-off-World-Map" class="button" target="_blank">Scratch World Map</a>
     </section>
 
     <section>
         <h2>Contact</h2>
         <a href="mailto:rumman.rk17@gmail.com" class="button">Email Me</a>
-        <a href="https://github.com/rumman999" class="button">GitHub</a>
+        <a href="https://github.com/rumman999" class="button" target="_blank">GitHub</a>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Rumman Karim. Built with love and HTML.</p>
-    </footer>
+ <!--    <footer>
+        <p>© 2025 Rumman Karim. All rights reserved.</p>
+    </footer>  -->
+
+    <script>
+        // Particles.js Configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#64ffda" },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
+                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+                size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1 } },
+                line_linked: { enable: true, distance: 150, color: "#64ffda", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 3, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "window", // Changed from "canvas" to "window"
+                events: {
+                    onhover: { enable: true, mode: "bubble" }, // Particles react on hover
+                    onclick: { enable: true, mode: "push" } // Particles push on click
+                },
+                modes: {
+                    bubble: { distance: 100, size: 6, duration: 2, opacity: 0.8, speed: 3 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>
